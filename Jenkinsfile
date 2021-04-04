@@ -28,7 +28,7 @@ pipeline {
         stage('pull & run docker image') {
             steps {
                 echo "remove image if exits"
-                sh 'docker rmi -f httpd_demo'
+                sh 'docker rmi -f $REGISTRY:$DEPLOY_TAG' 
                 echo "pull image from $REGISTRY & run image"
                 sh 'docker pull $REGISTRY:$DEPLOY_TAG'
                 sh 'docker run --name httpd_demo -d -p 8080:80 $REGISTRY:$DEPLOY_TAG'
