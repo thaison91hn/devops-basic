@@ -4,7 +4,7 @@ pipeline {
     REGISTRY = 'thaison91hp/devops-basic'
     }
     parameters {
-    string(name:'DEPLOY_TAG',defaultValue: 'dev-0.0.1'
+    string(name:'DEPLOY_TAG',defaultValue: 'dev-0.0.1')
     }    
     agent { label 'Docker-agent'}
     stages {
