@@ -1,7 +1,7 @@
 pipeline {
     environment {
     NAME = 'nginx_demo'
-    IMG = '${NAME}'
+    IMG = ${NAME}
     REGISTRY = 'thaison91hp/devops-basic'
     }
     parameters {
