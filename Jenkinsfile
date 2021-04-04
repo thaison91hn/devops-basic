@@ -4,7 +4,7 @@ pipeline {
     img = '${name}'
     registry = 'thaison91hp/devops-basic'
     }
-    pamameters {
+    parameters {
     string(name:'DEPLOY_TAG', defaultValue:'dev-0.0.1')
     }
     agent { label 'Docker-agent'}
