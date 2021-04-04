@@ -8,7 +8,7 @@ pipeline {
         }
         stage('build dockerfile') {
             steps {
-                withDockerRegistry(credentialsld:'c0fd71ad-9253-4118-ac13-bbb6a349a0d1',url:'https://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId:'c0fd71ad-9253-4118-ac13-bbb6a349a0d1',url:'https://index.docker.io/v1/') {
                     sh label:'', script: 'docker build -t thaison91hp/devops-basic:v1 .'
                     sh label:'', script: 'docker push thaison91hp/devops-basic:v1'
                 }
