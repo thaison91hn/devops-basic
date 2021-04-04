@@ -1,7 +1,6 @@
 pipeline {
     environment {
     NAME = 'nginx_demo'
-    IMG = '$NAME'
     REGISTRY = 'thaison91hp/devops-basic'
     }
     parameters {
@@ -17,8 +16,8 @@ pipeline {
         stage('build dockerfile') {
             steps {
                 withDockerRegistry(credentialsId: 'c0fd71ad-9253-4118-ac13-bbb6a349a0d1', url: 'https://index.docker.io/v1/') {
-                    echo "Building docker image $IMG:$DEPLOY_TAG"
-                    sh "docker build -f $IMG:$DEPLOY_TAG ."
+                    echo "Building docker image $NAME:$DEPLOY_TAG"
+                    sh "docker build -f $NAME:$DEPLOY_TAG ."
                     echo "push image to dockerhub"
                     sh "docker push $REGISTRY:$DEPLOY_TAG"
                 }
