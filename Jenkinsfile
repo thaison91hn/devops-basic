@@ -9,6 +9,7 @@ pipeline {
         stage('build dockerfile') {
             steps {
                 sh 'sudo docker build -t test_nginx .'
+                sh 'sudo docker run -d test_nginx'
             }
         }  
     }
