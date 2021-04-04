@@ -3,7 +3,7 @@ pipeline {
     name = nginx_demo
     tag = date + '%Y - %m -%d'
     img = ${name}+ ":${tag}"
-    latest = ${name}+ :latest
+    latest = ${name}+ ":latest"
     registry = "thaison91hp/devops-basic"
     registryCredential = 'thaison91hp'
     }
