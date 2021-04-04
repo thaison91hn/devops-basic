@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                git 'https://github.com/dthaison/devops-basic.git'
+                git 'https://github.com/thaison91hn/devops-basic.git'
             }
         }
     }
