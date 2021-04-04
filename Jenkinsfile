@@ -1,7 +1,7 @@
 pipeline {
     environment {
     name = 'nginx_demo'
-    tag = 'date + '%Y-%m-%d''
+    tag = 'date + '%Y:%m:%d''
     img = '${name}+ ":${tag}"'
     latest = '${name}+ ":latest"'
     registry = 'thaison91hp/devops-basic'
