@@ -16,7 +16,7 @@ pipeline {
         }
         stage('build dockerfile') {
             steps {
-                sh 'sudo docker build -t --name $img $registry:$tag .'
+                sh 'sudo docker build -t $img $registry:$tag .'
                 sh 'sudo docker push $registry'
             }
         }  
