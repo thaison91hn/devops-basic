@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo "pull image from $REGISTRY & run image"
                 sh 'docker pull thaison91hp/devops-basic:dev-0.0.10'
-                sh 'docker run --name httpd_demo -p 8080:80 thaison91hp/devops-basic:dev-0.0.10'
+                sh 'docker run --name httpd_demo -d -p 8080:80 thaison91hp/devops-basic:dev-0.0.10'
             }
         }  
     }
