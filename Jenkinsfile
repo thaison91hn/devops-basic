@@ -7,6 +7,7 @@ pipeline {
     string(name:'DEPLOY_TAG',defaultValue: 'dev-0.0.1')
     }    
     agent { label 'Docker-agent'}
+
     stages {
         stage('clone') {
             steps {
@@ -22,6 +23,13 @@ pipeline {
                     echo "push image to dockerhub"
                     sh 'docker push $REGISTRY:$DEPLOY_TAG'
                 }
+            }
+        }
+        stage('pull & run docker image') {
+            steps {
+                echo "pull image from $REGISTRY & run image"
+                sh 'docker pull thaison91hp/devops-basic:dev-0.0.10'
+                sh 'docker run --name httpd_demo -p 8080:80 thaison91hp/devops-basic:dev-0.0.10'
             }
         }  
     }
