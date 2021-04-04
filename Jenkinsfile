@@ -31,7 +31,7 @@ pipeline {
                 sh 'docker rmi -f $REGISTRY:$DEPLOY_TAG' 
                 echo "pull image from $REGISTRY & run image"
                 sh 'docker pull $REGISTRY:$DEPLOY_TAG'
-                sh 'docker run --name $REGISTRY:$DEPLOY_TAG -d -p 8080:80 $REGISTRY:$DEPLOY_TAG'
+                sh 'docker run -d -p 8080:80 $REGISTRY:$DEPLOY_TAG'
             }
         }  
     }
