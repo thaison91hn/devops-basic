@@ -4,6 +4,9 @@ pipeline {
     img = '${name}'
     registry = 'thaison91hp/devops-basic'
     }
+    pamameters {
+    string(name:'DEPLOY_TAG', defaultValue:'dev-0.0.1')
+    }
     agent { label 'Docker-agent'}
     stages {
         stage('clone') {
@@ -14,8 +17,10 @@ pipeline {
         stage('build dockerfile') {
             steps {
                 withDockerRegistry(credentialsId: 'c0fd71ad-9253-4118-ac13-bbb6a349a0d1', url: 'https://index.docker.io/v1/') {
-                    sh 'sudo docker build -t $registry:$BUILD_NUMBER .'
-                    sh 'sudo docker push $registry:$BUILD_NUMBER'
+                    echo "Building docker image $img:$DEPLOY_TAG
+                    sh 'docker build -t $img:$DEPLOY_TAG .'
+                    echo "push image to dockerhub"
+                    sh 'docker push $registry:$DEPLOY_TAG'
                 }
             }
         }  
