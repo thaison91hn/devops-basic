@@ -1,9 +1,7 @@
 pipeline {
     environment {
     name = 'nginx_demo'
-    tag = 'build_nummber'
-    img = '${name}+ ":${tag}"'
-    latest = '${name}+ ":latest"'
+    img = '${name}'
     registry = 'thaison91hp/devops-basic'
     registryCredential = 'thaison91hp'
     }
@@ -16,8 +14,10 @@ pipeline {
         }
         stage('build dockerfile') {
             steps {
-                sh 'sudo docker build -t $registry:$tag .'
+                withDockerRegistry(credentialsId: 'c0fd71ad-9253-4118-ac13-bbb6a349a0d1', url: 'https://index.docker.io/v1/') {
+                sh 'sudo docker build -t $registry:$BUILD_NUMBER .'
                 sh 'sudo docker push $registry'
+                }
             }
         }  
     }
