@@ -37,13 +37,11 @@ pipeline {
     }
 
     post {
-        always {
-             failure {
+        suscess {
              echo 'send email to devopsadmin'
                  mail to: 'sondv@vps.com.vn',
                       subject: "failed pipeline",
                       body: "test email toi sondv"
-             }
 	}
     }
 }       
