@@ -39,7 +39,7 @@ pipeline {
 
     post {
         success {
-             emailext body: 'hello', subject: 'send email test to sondv', to: 'sondv@vps.com.vn'
+             emailext body: 'hello', subject: 'send email test to sondv', to: 'leanhtu.0404@gmail.com'
         }
     }
 }
