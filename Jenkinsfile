@@ -37,7 +37,8 @@ pipeline {
     }
 
     post {
-        suscess {
+        success {
+
              echo 'send email to devopsadmin'
                  mail to: 'sondv@vps.com.vn',
                       subject: "failed pipeline",
