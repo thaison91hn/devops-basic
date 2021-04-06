@@ -16,7 +16,7 @@ pipeline {
         }
         stage('build dockerfile') {
             steps {
-                withDockerRegistry(credentialsId:'1', url: 'https://index.docker.io/v1/') { 
+                withDockerRegistry(credentialsId:'d042ad57-c098-430e-be65-922a7a422a10', url: 'https://index.docker.io/v1/') { 
                     echo "Building docker image $NAME:$DEPLOY_TAG"
                     sh 'docker build -t $NAME:$DEPLOY_TAG .'
                     sh 'docker tag $NAME:$DEPLOY_TAG $REGISTRY:$DEPLOY_TAG'
