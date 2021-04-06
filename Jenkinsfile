@@ -39,11 +39,9 @@ pipeline {
 
     post {
         success {
-
-             echo 'send email to devopsadmin'
-                 mail to: 'sondv@vps.com.vn',
-                      subject: "failed pipeline",
-                      body: "test email toi sondv"
-	}
+             emailext body: 'hello', subject: 'send email test to sondv', to: 'sondv@vps.com.vn'
+        }
     }
-}       
+}
+
+
