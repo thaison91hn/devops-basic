@@ -6,7 +6,7 @@ pipeline {
     parameters {
     string(name:'DEPLOY_TAG',defaultValue: 'dev-0.0.1')
     }    
-    agent { label 'Docker-agent'}
+    agent { label 'Docker-slave'}
 
     stages {
         stage('clone') {
