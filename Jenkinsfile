@@ -29,7 +29,6 @@ pipeline {
             steps {
                 echo "remove image if exits"
                 sh 'docker rmi -f $REGISTRY:$DEPLOY_TAG'
-                sh 'docker kill $NAME' 
                 echo "pull image from $REGISTRY & run image"
                 sh 'docker pull $REGISTRY:$DEPLOY_TAG'
                 sh 'docker run --name $NAME -d -p 8083:80 $REGISTRY:$DEPLOY_TAG'
